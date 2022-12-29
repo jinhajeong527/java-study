@@ -1,0 +1,25 @@
+package thread;
+
+import java.awt.*;
+
+public class BeepPrintExample3 {
+    public static void main(String[] args) {
+        Thread thread = new Thread(new Runnable() {
+            //Runnable 익명 구현 객체를 사용하여 작업 스레드를 만들었다.
+            @Override
+            public void run() {
+                Toolkit toolkit = Toolkit.getDefaultToolkit();
+                for(int i = 0; i<5; i++) {
+                    toolkit.beep();
+                    try {Thread.sleep(500);} catch(Exception e) {}
+                }
+            }
+        });
+        thread.start();
+
+        for(int i=0; i<5; i++) {
+            System.out.println("띵");
+            try{ Thread.sleep(500);} catch(Exception e) {}
+        }
+    }
+}
