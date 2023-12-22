@@ -33,5 +33,9 @@ public enum Phase {
             return m.get(from).get(to);
         }
 
+        public static Map<Phase, Map<Phase, Transition>> getAll() {
+            return m;
+        }
+
     }
 }
