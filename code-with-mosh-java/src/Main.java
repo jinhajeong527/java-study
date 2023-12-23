@@ -1,6 +1,7 @@
 import concurrency.ThreadDemo;
 import concurrency.ThreadDemoJoin;
 import concurrency.ThreadDemoRaceCondition;
+import concurrency.ThreadDemoVolatile;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +13,7 @@ public class Main {
         System.out.println(Runtime.getRuntime().availableProcessors()); // 8
 //        ThreadDemo.show();
 //        ThreadDemoJoin.show();
-        ThreadDemoRaceCondition.show();
+//        ThreadDemoRaceCondition.show();
+        ThreadDemoVolatile.show();
     }
 }

@@ -4,18 +4,22 @@ public class DownloadFileTask implements Runnable {
     private DownloadStatus status;
 
     public DownloadFileTask() {
-        this.status = new DownloadStatus();
+    }
+
+    public DownloadFileTask(DownloadStatus status) {
+        this.status = status;
     }
 
     @Override
     public void run() {
         System.out.println("Download a file " + Thread.currentThread().getName());
 
-        for (int i = 0; i < 10_000; i++) {
+        for (int i = 0; i < 1_000_000; i++) {
             // 쓰레드 멈춰달라는 요청 없을 경우 계속해서 다운로드 진행한다.
             if (Thread.currentThread().isInterrupted()) return;
             status.incrementTotalBytes();
         }
+        status.done();
         System.out.println("Download complete " + Thread.currentThread().getName());
     }
     public DownloadStatus getStatus() {
