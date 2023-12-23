@@ -20,6 +20,11 @@ public class DownloadFileTask implements Runnable {
             status.incrementTotalBytes();
         }
         status.done();
+        // 해당 오브젝트의 변화를 기다리는 쓰레드가 여러개일 때 notifyAll을 쓰면 유용하다.
+        // synchronized 블락 안에서 실행하지 않으면 JVM이 런타임 예외를 던진다.
+        synchronized (status) {
+            status.notifyAll();
+        }
         System.out.println("Download complete " + Thread.currentThread().getName());
     }
     public DownloadStatus getStatus() {
