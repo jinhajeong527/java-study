@@ -1,7 +1,4 @@
-import concurrency.ThreadDemo;
-import concurrency.ThreadDemoJoin;
-import concurrency.ThreadDemoRaceCondition;
-import concurrency.ThreadDemoVolatile;
+import concurrency.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +9,6 @@ public class Main {
         // 각각의 코어는 두 개의 쓰레드를 사용 가능하다.
         System.out.println(Runtime.getRuntime().availableProcessors()); // 8
 
-        ThreadDemoRaceCondition.show();
+        ThreadDemoCollection.show();
     }
 }
