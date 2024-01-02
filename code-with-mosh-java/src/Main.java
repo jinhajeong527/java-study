@@ -1,14 +1,11 @@
-import concurrency.*;
+import generics.GenericList;
+import generics.User;
+import generics.Utils;
+
 
 public class Main {
     public static void main(String[] args) {
-        // main thread, garbage collector running thread
-        System.out.println(Thread.activeCount()); // 2
-        // to get the total number of the thread
-        // 8 개의 쓰레드가 사용 가능하다.
-        // 각각의 코어는 두 개의 쓰레드를 사용 가능하다.
-        System.out.println(Runtime.getRuntime().availableProcessors()); // 8
-
-        ThreadDemoCollection.show();
+        User user = Utils.max(new User(20), new User(30));
+        System.out.println(user);
     }
 }
