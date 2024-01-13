@@ -14,5 +14,16 @@ public class FunctionDemo {
         };
         String message = order.apply("Coffee Bean", 3);
         System.out.println(message);
+
+        Function<String, String> replaceColon = str -> str.replace(":", "=");
+        Function<String, String> addBraces = str -> "{" + str + "}";
+
+        String value = replaceColon
+                        .andThen(addBraces)
+                        .apply("key:value");
+        // Compose Function composes function in reverse order
+        value = addBraces.compose(replaceColon).apply("key:value");
+
+        System.out.println(value);
     }
 }
