@@ -48,5 +48,11 @@ public class StreamsDemo {
                 .filter(isPopular)
                 .forEach(m -> System.out.println(m));
 
+        // Getting Unique Value
+        movies.stream()
+                .map(Movie::getLikes)
+                .distinct()
+                .forEach(System.out::println);
+
     }
 }
