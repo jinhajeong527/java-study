@@ -39,6 +39,22 @@ public class ReducerDemo {
                 .get();
         System.out.println(result4.getTitle());
 
+        // [10, 20, 30]
+        // [30, 30]
+        // [60]
+        Optional<Integer> sum = movies.stream()
+                .map(m -> m.getLikes())
+                .reduce(Integer::sum); // Method Reference
+
+        int value = sum.orElse(0);
+        System.out.println(value);
+
+        // 초기값 제공하면, Optional 객체 다룰필요가 없어진다.
+        Integer sum2 = movies.stream()
+                .map(m -> m.getLikes())
+                .reduce(0, Integer::sum); // Method Reference
+        System.out.println(sum2);
+
 
     }
 }
